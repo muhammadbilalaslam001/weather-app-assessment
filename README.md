@@ -1,50 +1,83 @@
-# React + TypeScript + Vite
+# Weather Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This Weather Dashboard is a simple React + TypeScript + Vite application that allows users to search for weather information by city. It fetches data from the OpenWeatherMap API and displays current temperature, weather conditions, humidity, and wind speed. The UI is styled using Tailwind CSS, ensuring a responsive and clean design.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **City Search:** Users can enter a city name to fetch its current weather.
+- **Weather Details:** Displays temperature (in °C), weather description, humidity, and wind speed.
+- **Responsive UI:** The layout adapts to various screen sizes, from mobile to desktop.
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### Prerequisites
 
-- Configure the top-level `parserOptions` property like this:
+- **Node.js:** Make sure you have Node.js (>= 14.x) installed.
+- **Package Manager:** npm or yarn.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+### Installation
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/muhammadbilalaslam001/weather-app-assessment
+   cd weather-app-assessment
+   ```
+
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+   or
+   ```bash
+   yarn install
+   ```
+
+3. **Set Up Environment Variables:**
+   We have provided a sample `.env.example` file. Copy it to `.env` and paste your OpenWeatherMap API key inside.
+
+   ```bash
+   cp .env.example .env
+   ```
+
+   Open the `.env` file and replace `YOUR_API_KEY_HERE` with your actual API key from [OpenWeatherMap](https://openweathermap.org/).
+
+   **Example:**
+   ```env
+   VITE_WEATHER_API_KEY=45e80dfc2685b021d9f1a8b64130abfe
+   ```
+
+4. **Run the development server:**
+   ```bash
+   npm run dev
+   ```
+   
+   This will start the Vite development server. Open your browser and navigate to [http://localhost:5173/](http://localhost:5173/) (the port may vary) to see the application running.
+
+### Building for Production
+
+To create a production build, run:
+```bash
+npm run build
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+This will output a production-ready build in the `dist` folder. You can then deploy this folder to your preferred hosting service.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+### Linting and Formatting
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+- **Linting:**  
+  ```bash
+  npm run lint
+  ```
+  
+- **Type Check:**  
+  ```bash
+  npm run type-check
+  ```
+
+### Additional Notes
+
+- **Customization:**  
+  Feel free to customize the UI, add new features (like a 5-day forecast), or improve error handling.
+
+- **API Key Security:**  
+  Always ensure your API key is kept private. Since this is a client-side application, consider implementing server-side proxies or rate-limit checks for production scenarios.
